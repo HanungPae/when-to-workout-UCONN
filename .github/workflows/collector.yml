@@ -1,0 +1,32 @@
+name: collect-gym-data
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: install packages
+        run: pip install -r requirements.txt
+
+      - name: run script
+        run: python record.py
+
+      - name: commit data
+        run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@github.com"
+          git add data.csv
+          git commit -m "update data" || exit 0
+          git push
