@@ -8,7 +8,7 @@ st.title("🏋️‍♂️ UConn Rec Center Live Occupancy")
 
 # 2. Fetch the live data from your public repo
 # IMPORTANT: Replace 'YOUR-USERNAME' with your actual GitHub username!
-url = "https://raw.githubusercontent.com/YOUR-USERNAME/when-to-workout-UCONN/main/data.csv"
+url = "https://raw.githubusercontent.com/HanungPae/when-to-workout-UCONN/main/data.csv"
 
 # The @st.cache_data(ttl=300) tells the app to fetch fresh data every 5 minutes
 @st.cache_data(ttl=300)
