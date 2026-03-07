@@ -22,7 +22,9 @@ jobs:
           python-version: "3.11"
 
       - name: install packages
-        run: pip install -r requirements.txt
+        run: |
+          pip install playwright
+          playwright install chromium
 
       - name: run script
         run: python occupancy_tracker.py
