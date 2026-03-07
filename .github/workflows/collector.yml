@@ -21,7 +21,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: run script
-        run: python record.py
+        run: python occupancy_tracker.py
 
       - name: commit data
         run: |
